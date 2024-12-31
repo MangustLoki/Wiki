@@ -1,0 +1,3 @@
+# The plugin's stronghold locating breaks when playing at an x or z coord that is roughly over 46,000 or below -46,000
+
+This is because the plugin attempts to calculate distances by bringing x and z delta coords to the power of 2. For strongholds, this delta can be very large as strongholds stop generating after at roughly 26,000 blocks. That creates a result integer that is larger than java's max integer, causing a crash. There is no fix for this yet, and if a fix comes, it will raise the limit, not completely negate it.
